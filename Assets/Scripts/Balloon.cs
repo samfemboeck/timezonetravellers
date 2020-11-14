@@ -32,7 +32,6 @@ public class Balloon : MonoBehaviour
             speed = 0.2f;
             Vector2 newPos = (Vector2)transform.position + setmovement();
             Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-            
             if (Map.Instance.Encompasses(newBounds)) transform.Translate(setmovement());
         }
         wind();
@@ -58,14 +57,13 @@ public class Balloon : MonoBehaviour
     }
     public void pop()
     {
-        FindObjectOfType<ScoreKeeper>().addscore();
         Destroy(gameObject);
     }
 
     void wind()
     {
         int a = Random.Range(0, 100);
-        if (nextwindoccurrencetime > Time.time && a<25)
+        if (nextwindoccurrencetime > Time.time&& a<25)
         {
             nextwindoccurrencetime = Time.time + timefornextwind;
             if (windcount == 1)
@@ -94,7 +92,5 @@ public class Balloon : MonoBehaviour
     void setspeedaszero()
     {
         rb.velocity = Vector2.zero;
-    
     }
-
 }
