@@ -35,9 +35,7 @@ public class Balloon : MonoBehaviour
         Bounds newBounds = new Bounds(newPos, spriteBounds.size);
         if (Map.Instance.Encompasses(newBounds)) transform.Translate(newPos);
     }
-
-    
-    
+ 
    /* void randommovement()
     {
         Vector2 movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
