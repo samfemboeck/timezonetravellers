@@ -51,8 +51,7 @@ public class Balloon : MonoBehaviour
         }
 
         // Wind
-        Vector3 randomDirection = Random.insideUnitSphere;
-        _rb.AddForce(Wind.Instance.Direction * WindWeight + randomDirection * RandomFactor);
+        _rb.AddForce(Wind.Instance.Direction * WindWeight);
 
         // Player Antigravity
         _playerAntiGravity = Vector3.zero;

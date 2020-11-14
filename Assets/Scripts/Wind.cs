@@ -9,7 +9,7 @@ public class Wind : MonoBehaviour
     public Vector3 Direction;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
         InvokeRepeating("ChangeDirection", 0, ChangeDirectionInterval);
