@@ -10,6 +10,7 @@ public class ScoreKeeper : MonoBehaviour
     void Start()
     {
         scoreText.text = "Pop Count: " + score;
+        FindObjectOfType<MusicPlayer>().playhappymusic();
     }
 
     // Update is called once per frame
