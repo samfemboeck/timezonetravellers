@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &174929341
 SpriteRenderer:
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &291130498
 SpriteRenderer:
@@ -674,7 +674,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &606097887
 SpriteRenderer:
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &609648656
 SpriteRenderer:
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &848694811
 SpriteRenderer:
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &1142773325
 SpriteRenderer:
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &1182075435
 SpriteRenderer:
@@ -1888,7 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &1500565316
 SpriteRenderer:
@@ -2468,7 +2468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &1770214309
 SpriteRenderer:
@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &1991985010
 SpriteRenderer:
@@ -2802,7 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  fleeingrange: 2
+  fleeingrange: 3
   onedge: 0
 --- !u!212 &2000374474
 SpriteRenderer:

@@ -7,7 +7,8 @@ public class Balloon : MonoBehaviour
     GameObject player;
     [SerializeField] float speed;
     [SerializeField] float fleeingrange=3f;
-    
+    [Tooltip("The amount of time the wind acts on balloon")]
+    [SerializeField] float timeofimpact;
     public bool onedge = false;
     Rigidbody2D rb;
     float timefornextwind = 5f;
@@ -83,7 +84,7 @@ public class Balloon : MonoBehaviour
             }
             if (windcount < 4)windcount++;
             else windcount = 0;
-            Invoke("setspeedaszero",0.25f);
+            Invoke("setspeedaszero",timeofimpact);
             
         }
     }
