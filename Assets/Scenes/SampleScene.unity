@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 1596038297}
   - component: {fileID: 1596038298}
   - component: {fileID: 1596038299}
+  - component: {fileID: 1596038300}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -345,6 +346,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
+--- !u!114 &1596038300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596038296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9cdb6c41b18be41916496bddc3ccc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StonePrefab: {fileID: 4601823341816082397, guid: b6c0f91271cc638438b3f0b2afda1470, type: 3}
 --- !u!1 &1641504995
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   fleeingrange: 0
-  shakeamount: 0.5
   onedge: 0
 --- !u!50 &2109208456
 Rigidbody2D:
