@@ -6,26 +6,29 @@ public class Balloon : MonoBehaviour
 {
     GameObject player;
     [SerializeField] float speed;
-    public bool onedge=false;
+    [SerializeField] float fleeingrange;
     
+    public bool onedge = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject;   
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-        
-        Vector2 newPos =(Vector2)transform.position + setmovement();
-        Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-        Bounds currentBound= new Bounds(transform.position, spriteBounds.size);
-        
-        if (Map.Instance.Encompasses(newBounds))transform.Translate(setmovement());
+        if (isplayerinrange())
+        {
+            Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
+            Vector2 newPos = (Vector2)transform.position + setmovement();
+            Bounds newBounds = new Bounds(newPos, spriteBounds.size);
+            if (Map.Instance.Encompasses(newBounds)) transform.Translate(setmovement());
+        }
 
-        
+        if (onedge) shake();
+
     }
 
     Vector2 setmovement()
@@ -36,5 +39,25 @@ public class Balloon : MonoBehaviour
         return Dir;
     }
 
+    bool isplayerinrange() => Vector2.Distance(transform.position, player.transform.position) < fleeingrange;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Stone>())
+        {
+            Destroy(collision.gameObject);
+            GetComponent<Animator>().SetTrigger("pop");
+        }
+    }
+    public void pop()
+    {
+        Destroy(gameObject);
+    }
+
     
+
+    void shake()
+    {
+
+    }
 }
