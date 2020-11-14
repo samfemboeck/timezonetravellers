@@ -57,6 +57,7 @@ public class Balloon : MonoBehaviour
     }
     public void pop()
     {
+        FindObjectOfType<ScoreKeeper>().addscore();
         Destroy(gameObject);
     }
 
@@ -76,7 +77,7 @@ public class Balloon : MonoBehaviour
             }
             else if (windcount == 3)
             {
-                rb.AddForce(Vector2.left, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.left, ForceMode2D.Impulse);  
             }
             else if (windcount == 4)
             {
