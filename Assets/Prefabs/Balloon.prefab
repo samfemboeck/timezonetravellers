@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 860612433272346021}
   - component: {fileID: 860612433272346022}
   - component: {fileID: 860612433272346020}
-  - component: {fileID: 860612433272346026}
   - component: {fileID: 860612433272346027}
   - component: {fileID: 860612433272346025}
+  - component: {fileID: 8071826743013906563}
   m_Layer: 0
   m_Name: Balloon
-  m_TagString: Untagged
+  m_TagString: Baloon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,35 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486e55302c81d6843bafef3d9c2f088e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
-  fleeingrange: 2
-  onedge: 0
---- !u!61 &860612433272346026
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860612433272346023}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.006631434, y: 0.20225465}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.53125, y: 1.03125}
-    newSize: {x: 0.68, y: 0.68}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.53411114, y: 0.6203184}
-  m_EdgeRadius: 0
+  MarginAntigravity: 10
+  RandomFactor: 0
+  Margin: 1
+  MaxSpeed: 2
+  WindWeight: 1
+  PlayerAntiGravityWeight: 2
+  Fleeingrange: 2
 --- !u!50 &860612433272346027
 Rigidbody2D:
   serializedVersion: 4
@@ -141,13 +119,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1000000
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8cd050d5cc6739349bbb311a145bf5f2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &860612433272346025
 Animator:
   serializedVersion: 3
@@ -167,3 +145,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &8071826743013906563
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860612433272346023}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0059103966, y: 0.24556708}
+  m_Size: {x: 0.4898758, y: 0.52238417}
+  m_Direction: 0

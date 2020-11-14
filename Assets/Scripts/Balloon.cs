@@ -4,93 +4,84 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    GameObject player;
-    [SerializeField] float speed;
-    [SerializeField] float fleeingrange=3f;
-    [Tooltip("The amount of time the wind acts on balloon")]
-    [SerializeField] float timeofimpact;
-    public bool onedge = false;
-    Rigidbody2D rb;
-    float timefornextwind = 5f;
-    float nextwindoccurrencetime;
-    int windcount=1;
+    public float MarginAntigravity;
+    public float RandomFactor;
+    public float Margin;
+    public float MaxSpeed;
+    public float WindWeight;
+    public float PlayerAntiGravityWeight;
+    public float Fleeingrange;
+
+    Transform _playerTransform;
+    Rigidbody2D _rb;
+    Vector3 _playerAntiGravity;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextwindoccurrencetime = Time.time + timefornextwind;
-        player = FindObjectOfType<PlayerMovement>().gameObject;
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+        _playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
-        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-      
-        if (isplayerinrange())
+        _playerAntiGravity = Vector3.zero;
+        if (IsPlayerInRange())
+            _playerAntiGravity = (transform.position - _playerTransform.position).normalized;
+    }
+
+    private void FixedUpdate()
+    {
+        // Margin Antigravity
+        if (transform.position.x < Map.Instance.MinWorldPos.x + Margin)
         {
-            speed = 0.2f;
-            Vector2 newPos = (Vector2)transform.position + setmovement();
-            Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-            if (Map.Instance.Encompasses(newBounds)) transform.Translate(setmovement());
+            _rb.AddForce(Vector3.right * MarginAntigravity);
         }
-        wind();
+        if (transform.position.x > Map.Instance.MaxWorldPos.x - Margin)
+        {
+            _rb.AddForce(Vector3.left * MarginAntigravity);
+        }
+        if (transform.position.y < Map.Instance.MinWorldPos.y + Margin)
+        {
+            _rb.AddForce(Vector3.up * MarginAntigravity);
+        }
+        if (transform.position.y > Map.Instance.MaxWorldPos.y - Margin)
+        {
+            _rb.AddForce(Vector3.down * MarginAntigravity);
+        }
+
+        // Wind
+        Vector3 randomDirection = Random.insideUnitSphere;
+        _rb.AddForce(Wind.Instance.Direction * WindWeight + randomDirection * RandomFactor);
+
+        // Player Antigravity
+        _playerAntiGravity = Vector3.zero;
+        if (IsPlayerInRange())
+            _playerAntiGravity = (transform.position - _playerTransform.position).normalized;
+        _rb.AddForce(_playerAntiGravity * PlayerAntiGravityWeight);
+
+        if (_rb.velocity.magnitude > MaxSpeed)
+            _rb.velocity = _rb.velocity.normalized * MaxSpeed;
     }
 
-    Vector2 setmovement()
-    {
-        Vector2 playerpos = player.transform.position;
-        Vector2 Dir = (playerpos - (Vector2)transform.position);
-        Dir = -Dir.normalized * (speed + Random.Range(0.1f, speed)) * Time.deltaTime;
-        return Dir;
-    }
+    bool IsPlayerInRange() => Vector2.Distance(transform.position, _playerTransform.position) < Fleeingrange;
 
-    bool isplayerinrange() => Vector2.Distance(transform.position, player.transform.position) < fleeingrange;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Stone>())
+        if (collision.gameObject.CompareTag("Stone"))
         {
             Destroy(collision.gameObject);
             GetComponent<Animator>().SetTrigger("pop");
         }
-    }
-    public void pop()
-    {
-        Destroy(gameObject);
-    }
 
-    void wind()
-    {
-        int a = Random.Range(0, 100);
-        if (nextwindoccurrencetime > Time.time&& a<25)
+        if (collision.gameObject.CompareTag("Baloon"))
         {
-            nextwindoccurrencetime = Time.time + timefornextwind;
-            if (windcount == 1)
-            {
-                rb.AddForce(Vector2.up, ForceMode2D.Impulse);
-            }
-            else if (windcount == 2)
-            {
-                rb.AddForce(Vector2.right, ForceMode2D.Impulse);
-            }
-            else if (windcount == 3)
-            {
-                rb.AddForce(Vector2.left, ForceMode2D.Impulse);
-            }
-            else if (windcount == 4)
-            {
-                rb.AddForce(Vector2.down, ForceMode2D.Impulse);
-            }
-            if (windcount < 4)windcount++;
-            else windcount = 0;
-            Invoke("setspeedaszero",timeofimpact);
-            
+            _rb.AddForce(collision.gameObject.GetComponent<Rigidbody2D>().velocity * 10);
         }
     }
 
-    void setspeedaszero()
+    public void Pop()
     {
-        rb.velocity = Vector2.zero;
+        Destroy(gameObject);
     }
 }
