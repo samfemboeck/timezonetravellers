@@ -18,32 +18,43 @@ public class Balloon : MonoBehaviour
 
     void Update()
     {
+        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
         if (isplayerinrange())
         {
-            setmovement();
+            speed = 0.2f;
+            Vector2 newPos = (Vector2)transform.position + setmovement();
+            Bounds newBounds = new Bounds(newPos, spriteBounds.size);
+            if (Map.Instance.Encompasses(newBounds)) transform.Translate(setmovement());
         }
+        if (onedge)
+        {
+            speed = 5f;
+            Vector2 newPos = (Vector2)transform.position + randommovement();
+            Bounds newBounds = new Bounds(newPos, spriteBounds.size);
+            if (Map.Instance.Encompasses(newBounds))
+            {
+                transform.Translate(randommovement());
+            
+            }
+        }
+
     }
 
-
-    void setmovement()
+    Vector2 setmovement()
     {
         Vector2 playerpos = player.transform.position;
         Vector2 Dir = (playerpos - (Vector2)transform.position);
         Dir = -Dir.normalized * (speed + Random.Range(0.1f, speed)) * Time.deltaTime;
-        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-        Vector2 newPos = (Vector2)transform.position + Dir;
-        Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-        if (Map.Instance.Encompasses(newBounds)) transform.Translate(newPos);
+        return Dir;
     }
 
-    
-    
-   /* void randommovement()
-    {
-        Vector2 movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        movement = movement.normalized * Time.deltaTime*speed;
-        GetComponent<Rigidbody2D>().AddForce(movement);
-    }*/
+
+     Vector2 randommovement()
+     {
+         Vector2 movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+         movement = movement.normalized * Time.deltaTime*speed;
+         return movement;
+     }
 
     bool isplayerinrange() => Vector2.Distance(transform.position, player.transform.position) < fleeingrange;
 
