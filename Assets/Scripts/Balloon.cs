@@ -5,6 +5,8 @@ using UnityEngine;
 public class Balloon : MonoBehaviour
 {
     GameObject player;
+    [SerializeField] AudioSource source;
+    
     [SerializeField] float speed;
     [SerializeField] float fleeingrange=3f;
     [Tooltip("The amount of time the wind acts on balloon")]
@@ -52,15 +54,20 @@ public class Balloon : MonoBehaviour
         if (collision.gameObject.GetComponent<Stone>())
         {
             Destroy(collision.gameObject);
+            
             GetComponent<Animator>().SetTrigger("pop");
         }
     }
     public void pop()
     {
         FindObjectOfType<ScoreKeeper>().addscore();
+        
         Destroy(gameObject);
     }
-
+    public void popsound()
+    {
+        source.Play();
+    }
     void wind()
     {
         int a = Random.Range(0, 100);
