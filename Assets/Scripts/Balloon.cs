@@ -16,28 +16,36 @@ public class Balloon : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isplayerinrange())
         {
-            Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-            Vector2 newPos = (Vector2)transform.position + setmovement();
-            Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-            if (Map.Instance.Encompasses(newBounds)) transform.Translate(setmovement());
+            setmovement();
         }
 
-        if (onedge) shake();
-
+        
     }
 
-    Vector2 setmovement()
+
+    void setmovement()
     {
         Vector2 playerpos = player.transform.position;
         Vector2 Dir = (playerpos - (Vector2)transform.position);
         Dir = -Dir.normalized * (speed + Random.Range(0.1f, speed)) * Time.deltaTime;
-        return Dir;
+        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
+        Vector2 newPos = (Vector2)transform.position + Dir;
+        Bounds newBounds = new Bounds(newPos, spriteBounds.size);
+        if (Map.Instance.Encompasses(newBounds)) transform.Translate(newPos);
     }
+
+    
+    
+   /* void randommovement()
+    {
+        Vector2 movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        movement = movement.normalized * Time.deltaTime*speed;
+        GetComponent<Rigidbody2D>().AddForce(movement);
+    }*/
 
     bool isplayerinrange() => Vector2.Distance(transform.position, player.transform.position) < fleeingrange;
 
