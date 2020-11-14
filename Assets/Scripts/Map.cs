@@ -13,12 +13,15 @@ public class Map : MonoBehaviour
     {
         Instance = this;
         _minWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, -Camera.main.transform.position.z));
-        _maxWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, -Camera.main.transform.position.z));
+        _maxWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, -Camera.main.transform.position.z));
+
     }
 
     public bool Encompasses(Bounds bounds) => Contains(bounds.min) && Contains(bounds.max);
 
     public bool Contains(Vector3 position) => position.x >= _minWorldPos.x && position.x <= _maxWorldPos.x && position.y >= _minWorldPos.y && position.y <= _maxWorldPos.y;
+
+   
 
     // Update is called once per frame
     void Update()
