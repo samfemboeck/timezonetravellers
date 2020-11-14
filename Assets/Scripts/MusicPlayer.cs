@@ -15,28 +15,38 @@ public class MusicPlayer : MonoBehaviour
     {
        
     }
-
-    public void playbadmusic()
+    
+    public void playbadmusic(float timeforplay=0f)
     {
         source.clip = badmusic;
-        source.Play();
+        FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = false;
+        Invoke("playclip", timeforplay);
     }
 
-    public void playhappymusic()
+    public void playhappymusic(float timeforplay=0f)
     {
         source.clip = happymusic;
-        source.Play();
+        Invoke("playclip", timeforplay);
     }
 
-    public void playtransitionmusic()
+    public void playtransitionmusic(float timeforplay=0f)
     {
         source.clip = transition;
-        source.Play();
+        FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = false;
+        Invoke("playclip", timeforplay);
     }
 
-    public void playtitlemusic()
+    public void playtitlemusic(float timeforplay=0f)
     {
         source.clip = title;
-        source.Play();
+        Invoke("playclip", timeforplay);
     }
+
+    void playclip()
+    {
+
+        source.Play();
+        FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = true;
+    }
+
 }
