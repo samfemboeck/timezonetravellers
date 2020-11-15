@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443015355}
   - component: {fileID: 443015356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: foresttree_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1675413651}
   - component: {fileID: 1675413653}
   - component: {fileID: 1675413652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: foresttree_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668531654843077989}
   - component: {fileID: 1668531654843077988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: foresttree (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 860612433272346027}
   - component: {fileID: 860612433272346025}
   - component: {fileID: 8071826743013906563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Balloon Purple
   m_TagString: Baloon
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 873795123
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -2256211749526587549, guid: 6a1254e48faca9c4dbcb87fa3fece5d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

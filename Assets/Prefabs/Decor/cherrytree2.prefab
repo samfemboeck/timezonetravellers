@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 848660814}
   - component: {fileID: 848660815}
   - component: {fileID: 848660816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cherrytree2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630673664}
   - component: {fileID: 1630673665}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cherrytree2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6378623509673961622}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cherrytree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
