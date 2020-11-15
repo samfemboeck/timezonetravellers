@@ -1,13 +1,7 @@
 fileFormatVersion: 2
 guid: 5dda332ede208934383e8f51cd2418c8
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7445371770998590698
-    second: foresttree_0
-  - first:
-      213: 7225030116914450379
-    second: foresttree_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -81,49 +75,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: foresttree_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 123
-        width: 500
-        height: 377
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61378e052d9bca890800000000000000
-      internalID: -7445371770998590698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: foresttree_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 5
-        width: 499
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcf4f2a8c96744460800000000000000
-      internalID: 7225030116914450379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
