@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
+    public GameEvent CorruptEvent;
     public Text ScoreText;
     float _initialBalloonCount;
     float _balloonsPopped = 0;
 
     void Start()
     {
-        _initialBalloonCount = Balloon.Instances;
+        _initialBalloonCount = 15;
         ScoreText.text = "Pop Count: " + _balloonsPopped;
     }
 
@@ -25,8 +26,14 @@ public class ScoreBoard : MonoBehaviour
             Invoke("tempdisableplayer",2f);
 
         }
-        else if(_balloonsPopped==15)
+        if(_balloonsPopped == _initialBalloonCount)
         {
+            foreach (GoCorrupt corrupt in FindObjectsOfType<GoCorrupt>())
+                corrupt.GoCurrupt();
+
+            GetComponent<DialogueTrigger>().TriggerDialogue();
+            FindObjectOfType<DialogueManager>().CloseDialogueInSeconds(2);
+
             AudioManager.Instance.PlayClip("transitionMusic", true, 1, Source.Music, 2f);
             FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = false;
             FindObjectOfType<PlayerMovement>().GetComponent<Slingshot>().enabled = false;

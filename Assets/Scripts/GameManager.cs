@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameEvent GoCorrupt;
     public float BalloonPopVolume;
     public float BalloonBounceVolume;
     public float HappyMusicVolume;
