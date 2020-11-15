@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum Source { Music, Wind }
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    public enum Source { Music, Wind }
+    
 
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource windSource;
@@ -66,4 +66,6 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.PlayOneShot(_audioClips[clip], volume);
     }
+
+    
 }
