@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
             lasty = currenty;
             animator.SetFloat("lastx", lastx);
             animator.SetFloat("lasty", lasty);
-            animator.SetBool("walking", true);
+            animator.SetBool("walk", true);
         }
-        else animator.SetBool("walking", false);
+        else animator.SetBool("walk", false);
     }
 }
