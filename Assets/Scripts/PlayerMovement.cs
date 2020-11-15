@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
         Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
         Vector3 newPos = transform.position + move;
         Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-        if (Map.Instance.Encompasses(newBounds))
-            transform.Translate(move);
+        //if (Map.Instance.Encompasses(newBounds))
+        transform.Translate(move);
             
             if (move.sqrMagnitude > 0)
             {
