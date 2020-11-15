@@ -7298,6 +7298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBalloons: 15
+  currentballoons: 0
   BalloonPrefab:
   - {fileID: 873834119377031837, guid: 95808cc7db5ac6b49a2c7ce4d6b58153, type: 3}
   - {fileID: 860612433272346023, guid: b3a8b85c8d5da684a98e75feda26dab3, type: 3}
@@ -11919,8 +11920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17825278fb5ea640ab2c3abaf3ecefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinWorldPos: {x: 0, y: 0, z: 0}
-  MaxWorldPos: {x: 0, y: 0, z: 0}
+  MinWorldPos: {x: -15, y: 12, z: 0}
+  MaxWorldPos: {x: 16, y: 26, z: 0}
 --- !u!4 &1509206006
 Transform:
   m_ObjectHideFlags: 0

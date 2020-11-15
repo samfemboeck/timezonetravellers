@@ -12,8 +12,7 @@ public class Map : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        MinWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, -Camera.main.transform.position.z));
-        MaxWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, -Camera.main.transform.position.z));
+        
     }
 
     public bool Encompasses(Bounds bounds) => Contains(bounds.min) && Contains(bounds.max);

@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.PlayClip("happy-music", true, HappyMusicVolume, AudioManager.Source.Music);
-        AudioManager.Instance.PlayClip("wind", true, WindVolume, AudioManager.Source.Wind);
+        AudioManager.Instance.PlayClip("happy-music", true, HappyMusicVolume, Source.Music);
+        AudioManager.Instance.PlayClip("wind", true, WindVolume, Source.Wind);
     }
 
     // Update is called once per frame
