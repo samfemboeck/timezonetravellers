@@ -8,6 +8,10 @@ public class Slingshot : MonoBehaviour
     public GameEvent OnSlingshot;
     Vector3 _initialMousePos;
     Animator animator;
+
+    bool charging=false;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,28 @@ public class Slingshot : MonoBehaviour
         {
             _initialMousePos = Input.mousePosition;
             animator.SetTrigger("charge");
+            charging = true;
+        }
+        if(charging)
+        {
+            Vector2 direction = (_initialMousePos - Input.mousePosition).normalized;
+            if(direction.x>0)
+            {
+                animator.SetFloat("dirx", 1);
+
+            }
+            else if(direction.x<0)
+            {
+                animator.SetFloat("dirx", -1);
+            }
+            if(direction.y>0)
+            {
+                animator.SetFloat("diry", 1);
+            }
+            else if(direction.y<0)
+            {
+                animator.SetFloat("diry", -1);
+            }
         }
         if (Input.GetMouseButtonUp(0))
         {
