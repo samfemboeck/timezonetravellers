@@ -29,8 +29,13 @@ public class Slingshot : MonoBehaviour
                 animator.SetTrigger("shoot");
                
             }
-            else animator.SetTrigger("default");
+            animator.SetTrigger("default");
         }
+    }
+    public void turnofftriggers()
+    {
+        animator.SetBool("shoot", false);
+        animator.SetBool("default", false);
     }
 
     public void createrock()

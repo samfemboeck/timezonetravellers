@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
+    public float currentspeed;
     float currentx;
     float currenty;
     float lastx;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentspeed = Speed;
         animator = GetComponent<Animator>();
     }
 
@@ -51,5 +53,16 @@ public class PlayerMovement : MonoBehaviour
 
         }
         else animator.SetBool("walk", false);
+    }
+
+   
+    public void makespeedzero()
+    {
+        currentspeed = 0;
+    }
+
+    public void restoretooriginalspeed()
+    {
+        currentspeed = Speed;
     }
 }
