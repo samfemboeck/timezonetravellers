@@ -26,6 +26,4 @@ public class InvisibleWall : MonoBehaviour
             FindObjectOfType<DialogueManager>().CloseDialogueInSeconds(ShowDialogueForSeconds);
         }
     }
-
-    public void CloseDialogue() => FindObjectOfType<DialogueManager>().EndDialogue();
 }

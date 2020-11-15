@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
-    
-    
-
     public void changescene(string nameofscene)
     {
 
