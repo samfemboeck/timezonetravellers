@@ -48,7 +48,12 @@ public class DialogueManager : MonoBehaviour
         DialogueText.text = sentence;
     }
 
-    void EndDialogue()
+    public void CloseDialogueInSeconds(float seconds)
+    {
+        Invoke("EndDialogue", seconds);
+    }
+
+    public void EndDialogue()
     {
         Animator.SetBool("IsOpen", false);
     }
