@@ -27,27 +27,7 @@ public class Slingshot : MonoBehaviour
             animator.SetTrigger("charge");
             charging = true;
         }
-        if(charging)
-        {
-            Vector2 direction = (_initialMousePos - Input.mousePosition).normalized;
-            if(direction.x>0)
-            {
-                animator.SetFloat("dirx", 1);
-
-            }
-            else if(direction.x<0)
-            {
-                animator.SetFloat("dirx", -1);
-            }
-            if(direction.y>0)
-            {
-                animator.SetFloat("diry", 1);
-            }
-            else if(direction.y<0)
-            {
-                animator.SetFloat("diry", -1);
-            }
-        }
+      
         if (Input.GetMouseButtonUp(0))
         {
             if (_initialMousePos != Input.mousePosition)
@@ -57,6 +37,7 @@ public class Slingshot : MonoBehaviour
             }
             animator.SetTrigger("default");
         }
+
     }
     public void turnofftriggers()
     {
