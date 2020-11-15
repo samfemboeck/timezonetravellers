@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         currentx = Input.GetAxisRaw("Horizontal");
         currenty = Input.GetAxisRaw("Vertical");
         animator.SetFloat("currentx", currentx);
         animator.SetFloat("currenty", currenty);
         Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-        Vector3 move = new Vector3( currentx* Speed * Time.deltaTime, currenty * Speed * Time.deltaTime);
+        Vector3 move = new Vector3( currentx, currenty).normalized * Speed * Time.deltaTime;
+        Debug.Log(move.magnitude);
         Vector3 newPos = transform.position + move;
         Bounds newBounds = new Bounds(newPos, spriteBounds.size);
         if (Map.Instance.Encompasses(newBounds))
