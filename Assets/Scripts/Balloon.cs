@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
+    public static int Instances = 0;
+
     public float MarginAntigravity;
     public float RandomFactor;
     public float Margin;
@@ -12,9 +14,17 @@ public class Balloon : MonoBehaviour
     public float PlayerAntiGravityWeight;
     public float Fleeingrange;
 
+    public GameEvent OnBalloonPop;
+    public GameEvent OnBalloonBounce;
+
     Transform _playerTransform;
     Rigidbody2D _rb;
     Vector3 _playerAntiGravity;
+
+    private void Awake()
+    {
+        ++Instances;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -75,12 +85,15 @@ public class Balloon : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Baloon"))
         {
-            _rb.AddForce(collision.gameObject.GetComponent<Rigidbody2D>().velocity * 10);
+            OnBalloonBounce.Raise();
         }
     }
 
-    public void Pop()
+    public void OnAnimationPop()
     {
-        Destroy(gameObject);
+        --Instances;
+        OnBalloonPop.Raise();
     }
+
+    public void OnAnimationPopFinished() => Destroy(gameObject);
 }
