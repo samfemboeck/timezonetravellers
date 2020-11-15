@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: c604d754f5771114cadbb0db2c8f5bb6
+guid: 420a2ca2e08abaa4a8164ac73d58bf4d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -334294690212968241
-    second: CUTE_GIRLidle_back__0
+      213: 574295317583485282
+    second: CUTE_GIRLidle_side__0
   - first:
-      213: -733965093226998723
-    second: CUTE_GIRLidle_back__1
+      213: 1753105948214792634
+    second: CUTE_GIRLidle_side__1
   - first:
-      213: -5599804423428334979
-    second: CUTE_GIRLidle_back__2
+      213: 8668003903484887741
+    second: CUTE_GIRLidle_side__2
   - first:
-      213: -2036384759743975308
-    second: CUTE_GIRLidle_back__3
+      213: -6411170949600438375
+    second: CUTE_GIRLidle_side__3
   - first:
-      213: -1699328954751876509
-    second: CUTE_GIRLidle_back__4
+      213: -3282403439808956187
+    second: CUTE_GIRLidle_side__4
   - first:
-      213: 8056141056167887299
-    second: CUTE_GIRLidle_back__5
+      213: -4178818150302647548
+    second: CUTE_GIRLidle_side__5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,13 +131,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__0
+      name: CUTE_GIRLidle_side__0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 3
+        y: 1
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269dbb07c8e48f700800000000000000
+      internalID: 574295317583485282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUTE_GIRLidle_side__1
+      rect:
+        serializedVersion: 2
+        x: 35
         y: 1
         width: 22
-        height: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,80 +166,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc88e8b10c85c5bf0800000000000000
-      internalID: -334294690212968241
+      spriteID: ab197f05298445810800000000000000
+      internalID: 1753105948214792634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__1
+      name: CUTE_GIRLidle_side__2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d341bace2ae60d5f0800000000000000
-      internalID: -733965093226998723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CUTE_GIRLidle_back__2
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 1
-        width: 24
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7a94e1cb8f7942b0800000000000000
-      internalID: -5599804423428334979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CUTE_GIRLidle_back__3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 1
-        width: 24
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 470f079a9de4db3e0800000000000000
-      internalID: -2036384759743975308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CUTE_GIRLidle_back__4
-      rect:
-        serializedVersion: 2
-        x: 131
+        x: 66
         y: 1
         width: 24
         height: 23
@@ -229,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3628a7fa155ca68e0800000000000000
-      internalID: -1699328954751876509
+      spriteID: db28aea00afea4870800000000000000
+      internalID: 8668003903484887741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__5
+      name: CUTE_GIRLidle_side__3
       rect:
         serializedVersion: 2
-        x: 164
+        x: 99
         y: 1
-        width: 22
-        height: 24
+        width: 23
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +208,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c1c3597b992dcf60800000000000000
-      internalID: 8056141056167887299
+      spriteID: 99713ca3df1f607a0800000000000000
+      internalID: -6411170949600438375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUTE_GIRLidle_side__4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8baa0667f8272d0800000000000000
+      internalID: -3282403439808956187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUTE_GIRLidle_side__5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b714a580bd106c0800000000000000
+      internalID: -4178818150302647548
       vertices: []
       indices: 
       edges: []

@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: c604d754f5771114cadbb0db2c8f5bb6
+guid: 4f13400c2c43d6446a64382afd2d5ad8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -334294690212968241
-    second: CUTE_GIRLidle_back__0
+      213: 5770881723153824413
+    second: CUTE_GIRLwalk_front_1_0
   - first:
-      213: -733965093226998723
-    second: CUTE_GIRLidle_back__1
+      213: -8975084887141261772
+    second: CUTE_GIRLwalk_front_1_1
   - first:
-      213: -5599804423428334979
-    second: CUTE_GIRLidle_back__2
+      213: 6688198237042618511
+    second: CUTE_GIRLwalk_front_1_2
   - first:
-      213: -2036384759743975308
-    second: CUTE_GIRLidle_back__3
-  - first:
-      213: -1699328954751876509
-    second: CUTE_GIRLidle_back__4
-  - first:
-      213: 8056141056167887299
-    second: CUTE_GIRLidle_back__5
+      213: 8195701061526762099
+    second: CUTE_GIRLwalk_front_1_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__0
+      name: CUTE_GIRLwalk_front_1_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 1
+        y: 0
         width: 22
-        height: 24
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc88e8b10c85c5bf0800000000000000
-      internalID: -334294690212968241
+      spriteID: d9ab06d0a5a461050800000000000000
+      internalID: 5770881723153824413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__1
+      name: CUTE_GIRLwalk_front_1_1
       rect:
         serializedVersion: 2
         x: 36
         y: 1
         width: 22
-        height: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d341bace2ae60d5f0800000000000000
-      internalID: -733965093226998723
+      spriteID: 43ed7f0e8d7127380800000000000000
+      internalID: -8975084887141261772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__2
+      name: CUTE_GIRLwalk_front_1_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 1
-        width: 24
-        height: 22
+        x: 68
+        y: 0
+        width: 22
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,62 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7a94e1cb8f7942b0800000000000000
-      internalID: -5599804423428334979
+      spriteID: f80b15a6cd041dc50800000000000000
+      internalID: 6688198237042618511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CUTE_GIRLidle_back__3
+      name: CUTE_GIRLwalk_front_1_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1
-        width: 24
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 470f079a9de4db3e0800000000000000
-      internalID: -2036384759743975308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CUTE_GIRLidle_back__4
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 1
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3628a7fa155ca68e0800000000000000
-      internalID: -1699328954751876509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CUTE_GIRLidle_back__5
-      rect:
-        serializedVersion: 2
-        x: 164
+        x: 100
         y: 1
         width: 22
-        height: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c1c3597b992dcf60800000000000000
-      internalID: 8056141056167887299
+      spriteID: 372389951bafcb170800000000000000
+      internalID: 8195701061526762099
       vertices: []
       indices: 
       edges: []

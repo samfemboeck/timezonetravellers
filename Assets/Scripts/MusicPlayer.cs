@@ -32,6 +32,7 @@ public class MusicPlayer : MonoBehaviour
     public void playtransitionmusic(float timeforplay=0f)
     {
         source.clip = transition;
+        source.volume = 1;
         FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = false;
         Invoke("playclip", timeforplay);
     }
