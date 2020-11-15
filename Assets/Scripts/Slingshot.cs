@@ -5,6 +5,7 @@ using UnityEngine;
 public class Slingshot : MonoBehaviour
 {
     public GameObject StonePrefab;
+    public GameEvent OnSlingshot;
     Vector3 _initialMousePos;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class Slingshot : MonoBehaviour
         {
             if (_initialMousePos != Input.mousePosition)
             {
+                OnSlingshot.Raise();
                 GameObject stone = Instantiate(StonePrefab, transform.position, Quaternion.identity);
                 stone.GetComponent<Stone>().Direction = (_initialMousePos - Input.mousePosition).normalized;
             }
