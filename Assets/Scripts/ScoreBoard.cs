@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
+    public GameObject SplashScreen;
     public GameEvent CorruptEvent;
     public Text ScoreText;
     float _initialBalloonCount;
@@ -11,7 +12,6 @@ public class ScoreBoard : MonoBehaviour
 
     void Start()
     {
-        _initialBalloonCount = 15;
         ScoreText.text = "Pop Count: " + _balloonsPopped;
     }
 
@@ -26,7 +26,7 @@ public class ScoreBoard : MonoBehaviour
             Invoke("tempdisableplayer",2f);
 
         }
-        if(_balloonsPopped == _initialBalloonCount)
+        if(_balloonsPopped == 15)
         {
             foreach (GoCorrupt corrupt in FindObjectsOfType<GoCorrupt>())
                 corrupt.GoCurrupt();
@@ -37,7 +37,14 @@ public class ScoreBoard : MonoBehaviour
             AudioManager.Instance.PlayClip("transitionMusic", true, 1, Source.Music, 2f);
             FindObjectOfType<PlayerMovement>().GetComponent<PlayerMovement>().enabled = false;
             FindObjectOfType<PlayerMovement>().GetComponent<Slingshot>().enabled = false;
+
+            Invoke("ShowSplashScreen", 3);
         }
+    }
+
+    public void ShowSplashScreen()
+    {
+        SplashScreen.SetActive(true);
     }
 
     void tempdisableplayer()
