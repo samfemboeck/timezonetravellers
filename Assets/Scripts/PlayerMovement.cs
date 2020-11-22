@@ -26,18 +26,16 @@ public class PlayerMovement : MonoBehaviour
         currentx = Input.GetAxisRaw("Horizontal");
         currenty = Input.GetAxisRaw("Vertical");
         bool onlyone = (currenty == 0 || currentx == 0);
-        if (onlyone)
-        { 
+        if (!onlyone)
+        {
+            currentx /= 2;
+            currenty /= 2;
+        }
         animator.SetFloat("currentx", currentx);
         animator.SetFloat("currenty", currenty);
 
         Vector3 move = new Vector3(currentx * Speed * Time.deltaTime, currenty * Speed * Time.deltaTime);
 
-
-        Bounds spriteBounds = GetComponent<SpriteRenderer>().bounds;
-        Vector3 newPos = transform.position + move;
-        Bounds newBounds = new Bounds(newPos, spriteBounds.size);
-        //if (Map.Instance.Encompasses(newBounds))
         transform.Translate(move);
             
             if (move.sqrMagnitude > 0)
@@ -51,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
             else animator.SetBool("walk", false);
 
 
-        }
-        else animator.SetBool("walk", false);
+        
+        
     }
 
    
