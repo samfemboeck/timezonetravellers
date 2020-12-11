@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,49 +7,67 @@ public class Slingshot : MonoBehaviour
 {
     public GameObject StonePrefab;
     public GameEvent OnSlingshot;
+    public bool IsCollected = false;
+    public float IndicatorLength;
     Vector3 _initialMousePos;
-    Animator animator;
+    Vector3 _dir;
+    Animator _animator;
+    SpriteRenderer _spriteRenderer;
+    LineRenderer _lineRenderer;
+    bool _isCharging = false;
 
-    bool charging=false;
-
-    
-    // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _lineRenderer = GetComponentInChildren<LineRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!IsCollected)
+            return;
+
+        if (Input.GetMouseButtonDown(0) && _spriteRenderer.bounds.Contains(GetMousePos()))
         {
             _initialMousePos = Input.mousePosition;
-            animator.SetTrigger("charge");
-            charging = true;
+            _animator.SetTrigger("charge");
+            _isCharging = true;
+            _lineRenderer.enabled = true;
         }
-      
-        if (Input.GetMouseButtonUp(0))
+
+        if (_isCharging && Input.GetMouseButtonUp(0))
         {
             if (_initialMousePos != Input.mousePosition)
             {
-                animator.SetTrigger("shoot");
-               
+                _animator.SetTrigger("shoot");
             }
-            animator.SetTrigger("default");
+            else
+            {
+                _animator.SetTrigger("default");
+                _lineRenderer.enabled = false;
+            }
+
+            _isCharging = false;
         }
 
+        if (_isCharging)
+        {
+            var mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            _dir = (mousePos - transform.position).normalized;
+            _animator.SetFloat("slingshotX", _dir.x);
+            _animator.SetFloat("slingshotY", _dir.y);
+            _lineRenderer.SetPosition(1, -_dir * IndicatorLength);
+        }
     }
-    public void turnofftriggers()
-    {
-        animator.SetBool("shoot", false);
-        animator.SetBool("default", false);
-    }
+
+    Vector3 GetMousePos() => Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
 
     public void createrock()
     {
         OnSlingshot.Raise();
         GameObject stone = Instantiate(StonePrefab, transform.position, Quaternion.identity);
-        stone.GetComponent<Stone>().Direction = (_initialMousePos - Input.mousePosition).normalized;
+        stone.GetComponent<Stone>().Direction = -_dir;
+        _lineRenderer.enabled = false;
     }
 }

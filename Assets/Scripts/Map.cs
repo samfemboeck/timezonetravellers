@@ -7,23 +7,15 @@ public class Map : MonoBehaviour
     public static Map Instance;
     public Vector3 MinWorldPos;
     public Vector3 MaxWorldPos;
+    PolygonCollider2D _collider;
 
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
-        
+        _collider = GetComponent<PolygonCollider2D>();
     }
 
-    public bool Encompasses(Bounds bounds) => Contains(bounds.min) && Contains(bounds.max);
-
-    public bool Contains(Vector3 position) => position.x >= MinWorldPos.x && position.x <= MaxWorldPos.x && position.y >= MinWorldPos.y && position.y <= MaxWorldPos.y;
+    public bool Contains(Vector3 position) => _collider.OverlapPoint(position);
 
     public Vector3 GetRandomPosition() => new Vector3(Random.Range(MinWorldPos.x, MaxWorldPos.x), Random.Range(MinWorldPos.y, MaxWorldPos.y));
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

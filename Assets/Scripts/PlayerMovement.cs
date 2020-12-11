@@ -6,14 +6,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
     public float currentspeed;
-    float currentx;
-    float currenty;
-    float lastx;
-    float lasty;
     Animator animator;
+    bool _canWalk = true;
+
+    public bool CanWalk
+    {
+        get => _canWalk;
+        set
+        {
+            _canWalk = value;
+            animator.SetBool("walk", value);
+        }
+    }
+       
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentspeed = Speed;
         animator = GetComponent<Animator>();
@@ -22,45 +30,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!CanWalk)
+            return;
 
-        currentx = Input.GetAxisRaw("Horizontal");
-        currenty = Input.GetAxisRaw("Vertical");
-        bool onlyone = (currenty == 0 || currentx == 0);
-        if (!onlyone)
+        var move = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+        if (move == Vector3.zero)
         {
-            currentx /= 2;
-            currenty /= 2;
+            animator.SetBool("walk", false);
+            return;
         }
-        animator.SetFloat("currentx", currentx);
-        animator.SetFloat("currenty", currenty);
 
-        Vector3 move = new Vector3(currentx * Speed * Time.deltaTime, currenty * Speed * Time.deltaTime);
-
-        transform.Translate(move);
-            
-            if (move.sqrMagnitude > 0)
-            {
-                lastx = currentx;
-                lasty = currenty;
-                animator.SetFloat("lastx", lastx);
-                animator.SetFloat("lasty", lasty);
-                animator.SetBool("walk", true);
-            }
-            else animator.SetBool("walk", false);
-
-
-        
-        
+        animator.SetBool("walk", true);
+        animator.SetFloat("moveX", move.x);
+        animator.SetFloat("moveY", move.y);
+        transform.Translate(move * Speed * Time.deltaTime);
     }
 
-   
-    public void makespeedzero()
+    public void GoCorrupt()
     {
-        currentspeed = 0;
+        animator.SetTrigger("corrupt");
+        CanWalk = false;
     }
 
-    public void restoretooriginalspeed()
+    private void OnEnable()
     {
-        currentspeed = Speed;
+        Debug.Log("enabling playermovement");
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("disabling playermovement");
     }
 }

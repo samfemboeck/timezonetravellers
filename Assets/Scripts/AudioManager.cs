@@ -5,7 +5,7 @@ public enum Source { Music, Wind }
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    
+
 
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource windSource;
@@ -45,6 +45,16 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         PlayClip(clip, loop, volume, source);
         yield return null;
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    public void StopWind()
+    {
+        windSource.Stop();
     }
 
     public void PlayClip(string clip, bool loop, float volume, Source source)

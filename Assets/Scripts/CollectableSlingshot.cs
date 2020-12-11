@@ -12,8 +12,8 @@ public class CollectableSlingshot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             InvisibleWall.SetActive(false);
+            collision.GetComponent<Slingshot>().IsCollected = true;
             GetComponent<DialogueTrigger>().TriggerDialogue();
-            FindObjectOfType<DialogueManager>().CloseDialogueInSeconds(ShowDialogueForSeconds);
             Destroy(gameObject);
         }
     }

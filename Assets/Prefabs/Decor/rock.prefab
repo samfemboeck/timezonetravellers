@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1820138372787886788}
   - component: {fileID: 1820138372787886790}
   - component: {fileID: 1820138372787886789}
+  - component: {fileID: 4637542339192625178}
   m_Layer: 10
   m_Name: rock
   m_TagString: Untagged
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07779002, y: -0.09150082}
+  m_Offset: {x: 0.091094255, y: -0.35909942}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,5 +130,19 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.382664, y: 0.7087145}
+  m_Size: {x: 2.0478716, y: 0.4890017}
   m_EdgeRadius: 0
+--- !u!114 &4637542339192625178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820138372787886786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bece9119c8cada45b5fc5f40f793b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteBad: {fileID: 21300000, guid: f077e124e900eed41b31bfe205214a9b, type: 3}
+  SpriteGood: {fileID: 21300000, guid: 15c54013f0aa2a24ca3489f05af5b03d, type: 3}

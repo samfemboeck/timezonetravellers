@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class GoCorrupt : MonoBehaviour
 {
+    bool _isCorrupt = false;
     public Sprite SpriteBad;
+    public Sprite SpriteGood;
+    SpriteRenderer _spriteRenderer;
 
-    public void GoCurrupt()
+    private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = SpriteBad;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Toggle()
+    {
+        if (_isCorrupt)
+            GetComponent<SpriteRenderer>().sprite = SpriteGood;
+        else
+            GetComponent<SpriteRenderer>().sprite = SpriteBad;
+
+        _isCorrupt = !_isCorrupt;
     }
 }

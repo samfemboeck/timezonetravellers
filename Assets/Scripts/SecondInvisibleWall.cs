@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SecondInvisibleWall : MonoBehaviour
 {
+    bool _wasTriggered;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !_wasTriggered)
         {
             GetComponent<DialogueTrigger>().TriggerDialogue();
-            FindObjectOfType<DialogueManager>().CloseDialogueInSeconds(2);
+            _wasTriggered = true;
         }
     }
 }

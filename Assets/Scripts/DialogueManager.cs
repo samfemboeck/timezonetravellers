@@ -8,22 +8,18 @@ public class DialogueManager : MonoBehaviour
     public Text DialogueText;
 
     public Animator Animator;
-
     private Queue<string> _sentences = new Queue<string>();
+    bool _dialogueActive = false;
 
     private void Start()
     {
         GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-            DisplayNextSentence();
-    }
-
     public void StartDialogue(Dialogue dialogue)
     {
+        FindObjectOfType<PlayerMovement>().CanWalk = false;
+        _dialogueActive = true;
         Animator.SetBool("IsOpen", true);
 
         _sentences.Clear();
@@ -38,6 +34,9 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        if (!_dialogueActive)
+            return;
+
         if (_sentences.Count == 0)
         {
             EndDialogue();
@@ -55,6 +54,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        FindObjectOfType<PlayerMovement>().CanWalk = true;
+        _dialogueActive = false;
         Animator.SetBool("IsOpen", false);
     }
 }
